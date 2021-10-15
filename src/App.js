@@ -115,6 +115,7 @@ const App = () => {
 
   const apiKey = '1180e92d59b094d86eacd6e86686db5f';
   const defaultIcon = `http://openweathermap.org/img/wn/02d@2x.png`;
+  const errorIcon = `http://openweathermap.org/img/wn/11d@2x.png`;
 
   const handleChange = (e) => {
     setQuery(e.target.value)
@@ -177,7 +178,10 @@ const App = () => {
         </form>
         {(typeof weather.main !== 'undefined') ?
           notFound ?
-            (<div className={classes.message}>City not found</div>)
+            (<div className={classes.message}>
+              <img className={classes.defaultIconImg} src={`${errorIcon}`} alt='weather icon' />
+              <p>City not found</p>
+            </div>)
             : (<div className={classes.content}>
               <p className={classes.city}>{weather.name}, {weather.sys.country}</p>
               <DateBuilder date={new Date()} />
