@@ -151,6 +151,7 @@ const App = () => {
 
   useEffect(() => {
     const apiKey = process.env.REACT_APP_API_KEY;
+    console.log(process.env.REACT_APP_API_KEY)
     if (!location.error) {
       if (submittedValue === '' && location.loaded === true) {
         fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${location.coordinates.lat}&lon=${location.coordinates.lng}&units=metric&appid=${apiKey}`)
