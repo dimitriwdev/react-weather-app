@@ -113,7 +113,6 @@ const App = () => {
   const [notFound, setNotFound] = useState('');
   const location = useGeoLocation();
 
-  const apiKey = '1180e92d59b094d86eacd6e86686db5f';
   const defaultIcon = `http://openweathermap.org/img/wn/02d@2x.png`;
   const errorIcon = `http://openweathermap.org/img/wn/11d@2x.png`;
 
@@ -129,6 +128,7 @@ const App = () => {
   }
 
   const handleApiErrors = (res) => {
+    console.log(res)
     if (!res.ok) {
       throw Error(res.statusText);
     }
@@ -136,6 +136,7 @@ const App = () => {
   }
 
   useEffect(() => {
+    const apiKey = process.env.REACT_APP_OPENWEATHERAPI_API_KEY;
     if (submittedValue !== '') {
       fetch(`https://api.openweathermap.org/data/2.5/weather?q=${submittedValue}&units=metric&APPID=${apiKey}`)
         // .then(res => res.json())
@@ -149,6 +150,7 @@ const App = () => {
   }, [submittedValue])
 
   useEffect(() => {
+    const apiKey = process.env.REACT_APP_OPENWEATHERAPI_API_KEY;
     if (!location.error) {
       if (submittedValue === '' && location.loaded === true) {
         fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${location.coordinates.lat}&lon=${location.coordinates.lng}&units=metric&appid=${apiKey}`)
