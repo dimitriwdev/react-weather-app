@@ -48,7 +48,7 @@ const useStyles = makeStyles(() => ({
     flexDirection: 'column',
 
   },
-  geoLocationMessage: {
+  message: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -177,7 +177,7 @@ const App = () => {
         </form>
         {(typeof weather.main !== 'undefined') ?
           notFound ?
-            (<div className={classes.geoLocationMessage}>City not found</div>)
+            (<div className={classes.message}>City not found</div>)
             : (<div className={classes.content}>
               <p className={classes.city}>{weather.name}, {weather.sys.country}</p>
               <DateBuilder date={new Date()} />
@@ -190,10 +190,10 @@ const App = () => {
           :
           location.loaded ?
             location.error ?
-              (<div className={classes.geoLocationMessage}>{location.error.message}</div>)
+              (<div className={classes.message}>{location.error.message}</div>)
               : null
             :
-            (<div className={classes.geoLocationMessage}>
+            (<div className={classes.message}>
               <img className={classes.defaultIconImg} src={`${defaultIcon}`} alt='weather icon' />
               <p>Please wait</p>
               <WaitAnimation />
