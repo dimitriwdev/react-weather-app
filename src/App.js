@@ -167,7 +167,7 @@ const App = () => {
   return (
 
     <div className={(typeof weather.main !== 'undefined')
-      ? ((Math.round(weather.main.temp) <= 12)
+      ? ((Math.round(weather.main.temp) < 15)
         ? `${classes.cold}`
         : `${classes.warm}`)
       : `${classes.cold}`}
