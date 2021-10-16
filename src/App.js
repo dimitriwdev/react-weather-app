@@ -144,7 +144,6 @@ const App = () => {
     const apiKey = process.env.REACT_APP_API_KEY;
     if (submittedValue !== '') {
       fetch(`https://api.openweathermap.org/data/2.5/weather?q=${submittedValue}&units=metric&APPID=${apiKey}`)
-        // .then(res => res.json())
         .then(handleApiErrors)
         .then(res => res.json())
         .then(result => { setWeather(result) })
