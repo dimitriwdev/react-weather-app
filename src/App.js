@@ -40,6 +40,11 @@ const useStyles = makeStyles(() => ({
     '&:focus': {
       backgroundColor: 'rgba(255, 255, 255, 0.75)',
     },
+    '@media (max-width: 400px)': {
+      '&::placeholder': {
+        color: 'rgb(0, 0, 0, 0.8)'
+      },
+    },
   },
   content: {
     display: 'flex',
@@ -92,7 +97,7 @@ const useStyles = makeStyles(() => ({
     fontSize: '100px',
     '@media (max-width: 362px)': {
       fontSize: '70px',
-    }
+    },
   },
   weatherDesc: {
     color: '#fff',
